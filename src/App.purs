@@ -60,4 +60,4 @@ app config = do
   let
     moduleName = fromMaybe "Icons" config.moduleName
   buffer <- liftEffect $ Buffer.fromString (renderIconFile moduleName icons) UTF8
-  FS.writeFile "example/src/Icons.purs" buffer
+  FS.writeFile config.output buffer
