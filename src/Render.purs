@@ -80,18 +80,18 @@ icon{name} attrs =
   , element: renderElement element 1
   }
 
-renderIconFile :: Array Icon -> String
-renderIconFile icons =
-  format (sym :: _"""module Icons where
+renderIconFile :: String -> Array Icon -> String
+renderIconFile moduleName icons =
+  format (sym :: _"""module {moduleName} where
 
 import Prelude ((<>))
-import Halogen.HTML (HTML, IProp, Namespace(Namespace), ElemName(ElemName),
-                     AttrName(AttrName), text, elementNS, attr)
+import Halogen.HTML
 
 ns :: Namespace
 ns = Namespace "http://www.w3.org/2000/svg"
 
 {icons}
 """)
-  { icons: String.joinWith "" $ renderIcon <$> icons
+  { moduleName
+  , icons: String.joinWith "" $ renderIcon <$> icons
   }

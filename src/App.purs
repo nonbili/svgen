@@ -5,7 +5,7 @@ import Prelude
 import Config (Config, Input(..))
 import Data.Array as Array
 import Data.Either (Either(..))
-import Data.Maybe (Maybe(..))
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.String.Extra as StringEx
 import Data.Traversable (sequence)
 import Effect.Aff (Aff)
@@ -47,8 +47,8 @@ handleFile config file = do
     _ -> Aff.throwError $ Aff.error $ "Failed to parse" <> file
 
 app :: Config -> Aff Unit
-app config@({ input }) = do
-  icons <- case input of
+app config = do
+  icons <- case config.input of
     InputFolder folder -> do
       files <- FS.readdir folder
       let
@@ -57,5 +57,7 @@ app config@({ input }) = do
       sequence $ map (handleFile config) svgFiles
     InputFile file -> do
       pure <<< Array.singleton =<< handleFile config file
-  buffer <- liftEffect $ Buffer.fromString (renderIconFile icons) UTF8
+  let
+    moduleName = fromMaybe "Icons" config.moduleName
+  buffer <- liftEffect $ Buffer.fromString (renderIconFile moduleName icons) UTF8
   FS.writeFile "example/src/Icons.purs" buffer

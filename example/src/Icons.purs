@@ -1,8 +1,7 @@
 module Icons where
 
 import Prelude ((<>))
-import Halogen.HTML (HTML, IProp, Namespace(Namespace), ElemName(ElemName),
-                     AttrName(AttrName), text, elementNS, attr)
+import Halogen.HTML
 
 ns :: Namespace
 ns = Namespace "http://www.w3.org/2000/svg"

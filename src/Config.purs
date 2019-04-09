@@ -21,25 +21,27 @@ inputParser =
      ( O.long "folder"
     <> O.short 'F'
     <> O.metavar "FOLDER"
-    <> O.help "Input folder"
+    <> O.help "Input folder, all *.svg will be used"
      )
   <|>
   InputFile <$> O.strOption
      ( O.long "file"
     <> O.short 'f'
     <> O.metavar "FILE"
-    <> O.help "Input file"
+    <> O.help "Input svg file"
      )
 
 type Config =
   { input :: Input
   , svgoConfig :: Maybe String
+  , moduleName :: Maybe String
   }
 
-mkConfig :: Input -> Maybe String -> Config
+mkConfig :: Input -> Maybe String -> Maybe String -> Config
 mkConfig =
   { input: _
   , svgoConfig: _
+  , moduleName: _
   }
 
 configParser :: O.Parser Config
@@ -49,9 +51,14 @@ configParser = mkConfig
      ( O.long "svgo-config"
     <> O.help "SVGO config file in JSON format"
      ))
+  <*> optional (O.strOption
+     ( O.long "module"
+    <> O.short 'm'
+    <> O.help "Name of the generated module"
+     ))
 
 configParserInfo :: O.ParserInfo Config
 configParserInfo = O.info (configParser <**> O.helper)
   ( O.fullDesc
-  <> O.progDesc "Print a greeting for TARGET"
-  <> O.header "hello - a test for purescript-optparse" )
+  <> O.progDesc "Input can be a file or folder"
+  <> O.header "svgen - a tool that converts svg files to halogen module" )
