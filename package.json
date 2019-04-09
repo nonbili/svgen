@@ -21,6 +21,10 @@
     "url": "https://github.com/nonbili/svgen/issues"
   },
   "homepage": "https://github.com/nonbili/svgen#readme",
+  "files": [
+    "output",
+    "index.js"
+  ],
   "dependencies": {
     "svgo": "^1.2.0"
   }
