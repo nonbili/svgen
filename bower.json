@@ -1,0 +1,32 @@
+{
+  "name": "svgen",
+  "keywords": [
+    "purescript",
+    "svg"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nonbili/svgen.git"
+  },
+  "license": "BSD-3-Clause",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^4.0.0",
+    "purescript-svg-parser": "^1.0.0",
+    "purescript-record-format": "^1.0.0",
+    "purescript-optparse": "^1.0.0",
+    "purescript-node-fs-aff": "^6.0.0",
+    "purescript-svgo": "^0.1.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^4.0.0"
+  },
+  "resolutions": {
+    "purescript-typelevel-prelude": "^4.0.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@nonbili/svgen",
+  "version": "0.1.0",
+  "description": "convert svg files to purescript halogen module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonbili/svgen.git"
+  },
+  "keywords": [
+    "purescript",
+    "halogen",
+    "svg"
+  ],
+  "author": "Ping Chen",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/nonbili/svgen/issues"
+  },
+  "homepage": "https://github.com/nonbili/svgen#readme",
+  "dependencies": {
+    "svgo": "^1.2.0"
+  }
+}
