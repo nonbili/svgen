@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "convert svg files to purescript halogen module",
   "main": "index.js",
+  "bin": {
+    "svgen": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nonbili/svgen.git"
