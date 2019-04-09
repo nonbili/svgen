@@ -6,6 +6,7 @@ import Config (Config, Input(..))
 import Data.Array as Array
 import Data.Either (Either(..))
 import Data.Maybe (Maybe(..))
+import Data.String.Extra as StringEx
 import Data.Traversable (sequence)
 import Effect.Aff (Aff)
 import Effect.Aff as Aff
@@ -40,7 +41,7 @@ handleFile config file = do
   case parseToSvgNode optimized of
     Right (SvgElement element) -> do
       pure $
-        { name: Path.basenameWithoutExt file ".svg"
+        { name: StringEx.pascalCase $ Path.basenameWithoutExt file ".svg"
         , element
         }
     _ -> Aff.throwError $ Aff.error $ "Failed to parse" <> file

@@ -21,7 +21,8 @@
     "purescript-record-format": "^1.0.0",
     "purescript-optparse": "^1.0.0",
     "purescript-node-fs-aff": "^6.0.0",
-    "purescript-svgo": "^0.1.0"
+    "purescript-svgo": "^0.1.0",
+    "purescript-strings-extra": "^2.0.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^4.0.0"

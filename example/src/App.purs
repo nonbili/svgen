@@ -6,7 +6,7 @@ import Data.Maybe (Maybe(..))
 
 import Halogen as H
 import Halogen.HTML as HH
-import Icons (iconheart)
+import Icons (iconHeart)
 
 data Query a = Toggle a
 
@@ -18,7 +18,7 @@ className = HH.attr (HH.AttrName "class")
 render :: State -> H.ComponentHTML Query
 render state =
   HH.div_
-  [ iconheart
+  [ iconHeart
     [ className "icon" ]
   ]
 

@@ -8,8 +8,8 @@ ns :: Namespace
 ns = Namespace "http://www.w3.org/2000/svg"
 
 
-iconcomment :: forall p r i. Array (IProp r i) -> HTML p i
-iconcomment attrs =
+iconComment :: forall p r i. Array (IProp r i) -> HTML p i
+iconComment attrs =
   elementNS ns (ElemName "svg")
   ( attrs <> [ attr (AttrName "xmlns") "http://www.w3.org/2000/svg"
   , attr (AttrName "width") "16"
@@ -23,8 +23,8 @@ iconcomment attrs =
     ]
   ]
 
-iconheart :: forall p r i. Array (IProp r i) -> HTML p i
-iconheart attrs =
+iconHeart :: forall p r i. Array (IProp r i) -> HTML p i
+iconHeart attrs =
   elementNS ns (ElemName "svg")
   ( attrs <> [ attr (AttrName "xmlns") "http://www.w3.org/2000/svg"
   , attr (AttrName "width") "16"
