@@ -5,7 +5,7 @@ import Prelude
 import Config (Config, Input(..))
 import Data.Array as Array
 import Data.Either (Either(..))
-import Data.Maybe (Maybe(..), fromMaybe)
+import Data.Maybe (Maybe(..))
 import Data.String.Extra as StringEx
 import Data.Traversable (sequence)
 import Effect.Aff (Aff)
@@ -57,7 +57,5 @@ app config = do
       sequence $ map (handleFile config) svgFiles
     InputFile file -> do
       pure <<< Array.singleton =<< handleFile config file
-  let
-    moduleName = fromMaybe "Icons" config.moduleName
-  buffer <- liftEffect $ Buffer.fromString (renderIconFile moduleName icons) UTF8
+  buffer <- liftEffect $ Buffer.fromString (renderIconFile config.moduleName icons) UTF8
   FS.writeFile config.output buffer
