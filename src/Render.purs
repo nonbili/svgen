@@ -7,6 +7,7 @@ import Prelude
 
 import Data.Array as Array
 import Data.List (List)
+import Data.List as List
 import Data.String as String
 import Data.String.Regex as Regex
 import Data.String.Regex.Flags as RegexFlags
@@ -33,8 +34,9 @@ renderAttributes :: Int -> List SvgAttribute -> String
 renderAttributes depth attributes =
   list
   where
+  attributes' = List.filter (\(SvgAttribute name _) -> name /= "xmlns") attributes
   list = String.joinWith ", " $
-    Array.fromFoldable $ renderAttribute depth <$> attributes
+    Array.fromFoldable $ renderAttribute depth <$> attributes'
 
 renderSvgNode :: Int -> SvgNode -> String
 renderSvgNode depth (SvgElement element) = renderElement element depth

@@ -35,8 +35,7 @@ ns = Namespace "http://www.w3.org/2000/svg"
 iconHeart :: forall p r i. Array (IProp r i) -> HTML p i
 iconHeart attrs =
   elementNS ns (ElemName "svg")
-  ( attrs <> [ attr (AttrName "xmlns") "http://www.w3.org/2000/svg"
-  , attr (AttrName "width") "16"
+  ( attrs <> [ attr (AttrName "width") "16"
   , attr (AttrName "height") "16"
   , attr (AttrName "viewBox") "0 0 16 16"
   ])
@@ -52,6 +51,8 @@ Then use it like
 
 ```purescript
 import Icons (iconHeart)
+
+className = HH.attr (HH.AttrName "class")
 
 render state =
   HH.div_
