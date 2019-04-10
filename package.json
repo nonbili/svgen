@@ -1,7 +1,7 @@
 {
   "name": "@nonbili/svgen",
-  "version": "0.1.0",
-  "description": "convert svg files to purescript halogen module",
+  "version": "0.2.0",
+  "description": "Generate an icons module in purescript halogen from svg files",
   "main": "index.js",
   "bin": {
     "svgen": "./index.js"
