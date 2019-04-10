@@ -11,14 +11,6 @@ module.exports = {
     modules: ["node_modules", "output", "src"],
     extensions: [".js"]
   },
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        use: ["raw-loader"]
-      }
-    ]
-  },
 
   plugins: [
     new HtmlWebpackPlugin({

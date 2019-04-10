@@ -2,13 +2,12 @@
   "private": true,
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "webpack -p --progress",
+    "build": "pulp build -- +RTS -N2 -RTS && webpack -p --progress",
     "postinstall": "bower install",
     "start": "webpack-dev-server --progress"
   },
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
-    "raw-loader": "^2.0.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.0"

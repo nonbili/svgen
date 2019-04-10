@@ -1,0 +1,53 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - deps-{{ checksum "bower.json" }}-{{ checksum "example/bower.json" }}
+
+      - run:
+          command: |
+            git checkout -b gh-pages
+            git reset --hard origin/master
+
+      - run:
+          working_directory: example
+          command: |
+            yarn add --dev bower purescript pulp
+            yarn bower install
+            yarn
+            yarn build
+
+      - save_cache:
+          paths:
+            - node_modules
+            - bower_components
+            - example/node_modules
+            - example/bower_components
+            - output
+          key: deps-{{ checksum "bower.json" }}-{{ checksum "example/bower.json" }}
+
+      - run:
+          command: |
+            cp docs/* .
+            git config user.email "remotenonsense@gmail.com"
+            git config user.name "CircleCI"
+            git add . && git commit -am 'build gh-pages'
+            # https://stackoverflow.com/a/48763205
+            git push -q -f https://${GH_PAGES_TOKEN}@github.com/nonbili/svgen.git gh-pages
+
+workflows:
+  version: 2
+  build-gh-pages:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master

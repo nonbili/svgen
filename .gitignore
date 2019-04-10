@@ -5,4 +5,5 @@ yarn.lock
 .psa-stash
 .psci_modules
 .psc-ide-port
+docs
 output
