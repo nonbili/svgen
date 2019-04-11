@@ -66,7 +66,7 @@ configParser = mkConfig
   <*> optional (O.strOption
      ( O.long "svgo-config"
     <> O.metavar "FILE"
-    <> O.help "SVGO config file in JSON format [optional]"
+    <> O.help "SVGO config file in .js/.json format [optional]"
      ))
 
 configParserInfo :: O.ParserInfo Config

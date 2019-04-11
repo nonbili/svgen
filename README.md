@@ -11,10 +11,12 @@ yarn add --dev @nonbili/svgen
 yarn svgen -h
 ```
 
+Pass a `--svgo-config` if you want to preprocess your svg files with svgo.
+
 ## Example
 
 ```
-node index.js  -F example/svg -o ./example/src/Icons.purs --svgo-config ./example/svgo.config.json
+node index.js  -F example/svg -o example/src/Icons.purs --svgo-config example/svgo.config.js
 cd example
 yarn
 pulp build
