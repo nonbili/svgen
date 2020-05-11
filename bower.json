@@ -16,18 +16,18 @@
     "output"
   ],
   "dependencies": {
-    "purescript-prelude": "^4.0.0",
+    "purescript-prelude": "^4.1.1",
     "purescript-svg-parser": "^1.0.0",
-    "purescript-record-format": "^1.0.0",
-    "purescript-optparse": "^1.0.0",
+    "purescript-record-format": "^2.0.0",
+    "purescript-optparse": "^3.0.1",
     "purescript-node-fs-aff": "^6.0.0",
     "purescript-svgo": "^0.1.0",
-    "purescript-strings-extra": "^2.0.0"
+    "purescript-strings-extra": "^2.1.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^4.0.0"
   },
   "resolutions": {
-    "purescript-typelevel-prelude": "^4.0.0"
+    "purescript-typelevel-prelude": "^5.0.2"
   }
 }
