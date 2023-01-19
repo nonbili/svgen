@@ -63,7 +63,7 @@ renderElement { name, attributes, children } depth =
   attributesString' = "[ " <> renderAttributes depth attributes <> "]"
   attributesString :: String
   attributesString = if depth == 1
-    then "( attrs <> " <> attributesString' <> ")"
+    then "( " <> attributesString' <> " <> attrs)"
     else attributesString'
 
 type Icon =
